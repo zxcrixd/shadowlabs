@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShadowLabs — 3D-Товары и Донатная Валюта</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --gold: #f59e0b;
+            --green: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #334155;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, #1e1b4b 0%, #1e293b 100%);
+            border: 1px solid #4338ca;
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge {
+            background-color: var(--gold);
+            color: #000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .phone-banner {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--green);
+            font-weight: bold;
+        }
+
+        /* Sections */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 0.8rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .card-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--gold);
+            margin: 1rem 0;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-call {
+            background-color: var(--green);
+        }
+
+        .btn-call:hover {
+            background-color: #059669;
+        }
+
+        /* Referral Block */
+        .ref-box {
+            background-color: var(--card-bg);
+            border: 1px dashed var(--accent);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .ref-input-group {
+            display: flex;
+            max-width: 500px;
+            margin: 1.5rem auto 0 auto;
+            gap: 0.5rem;
+        }
+
+        .ref-input-group input {
+            flex: 1;
+            padding: 0.8rem;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            background-color: #0f172a;
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #334155;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ShadowLabs</div>
+        <nav>
+            <a href="#3d-shop">3D-Магазин</a>
+            <a href="#models">Примеры моделей</a>
+            <a href="#donate">Донат Валюта</a>
+            <a href="#referral">Рефералам</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <!-- Акционный баннер -->
+        <section class="hero">
+            <span class="badge">АКЦИЯ</span>
+            <h1>Скидка 15% на 3D-Товары & Пониженная Комиссия!</h1>
+            <p>Покупай мерч по лучшей цене и пополняй внутриигровой баланс безопасно через ShadowLabs.</p>
+            <div class="phone-banner">📞 Заказ по телефону: <a href="tel:+79620264277" style="color: var(--green); text-decoration: underline;">+7 (962) 026-42-77</a></div>
+        </section>
+
+        <!-- Раздел 3D-Товаров -->
+        <h2 class="section-title" id="3d-shop">3D-Товары (Скидка -15%)</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3>Держатель для геймпада</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Кастомная подставка с агрессивным дизайном для вашего контроллера.</p>
+                </div>
+                <div>
+                    <div class="card-price">1 275 ₽ <s style="font-size: 0.9rem; color: var(--text-muted);">1 500 ₽</s></div>
+                    <a href="tel:+79620264277" class="btn btn-call" style="width: 100%;">📞 Позвонить и заказать</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Органайзер кабелей</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Наводка порядка на столе. Печать высокопрочным PETG пластиком.</p>
+                </div>
+                <div>
+                    <div class="card-price">850 ₽ <s style="font-size: 0.9rem; color: var(--text-muted);">1 000 ₽</s></div>
+                    <a href="tel:+79620264277" class="btn btn-call" style="width: 100%;">📞 Позвонить и заказать</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Светящийся сувенир</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Фигурка с накопительным светонакопительным эффектом.</p>
+                </div>
+                <div>
+                    <div class="card-price">680 ₽ <s style="font-size: 0.9rem; color: var(--text-muted);">800 ₽</s></div>
+                    <a href="tel:+79620264277" class="btn btn-call" style="width: 100%;">📞 Позвонить и заказать</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Раздел примеров моделей с MakerWorld -->
+        <h2 class="section-title" id="models">Примеры моделей для печати (MakerWorld)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Можем напечатать любую из этих моделей или исполнить ваш индивидуальный проект!</p>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3>Подставки и аксессуары</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Подставки для наушников, телефонов и геймпадов в каталоге MakerWorld.</p>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="https://makerworld.com/en/search/models?keyword=controller%20stand" target="_blank" class="btn" style="width: 100%;">Открыть модели ↗</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Органайзеры для стола</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Модульные системы хранения, кабель-менеджмент и держатели.</p>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="https://makerworld.com/en/search/models?keyword=desk%20organizer" target="_blank" class="btn" style="width: 100%;">Открыть модели ↗</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Фигурки и сувениры</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Коллекционные статуэтки, артикулированные драконы и игровой мерч.</p>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="https://makerworld.com/en/search/models?keyword=articulated" target="_blank" class="btn" style="width: 100%;">Открыть модели ↗</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Раздел Донат Валюты -->
+        <h2 class="section-title" id="donate">Покупка Донат-Валюты</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Игровая валюта (Пакет)</h3>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Минимальная комиссия при пополнении игровых аккаунтов.</p>
+                <div class="card-price">Быстрое зачисление</div>
+                <a href="tel:+79620264277" class="btn btn-call">📞 Оформить по телефону</a>
+            </div>
+            <div class="card">
+                <h3>Индивидуальный заказ</h3>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Покупка предметов, батлпассов и подписок через оператора.</p>
+                <div class="card-price">Низкая ставка</div>
+                <a href="tel:+79620264277" class="btn btn-call">📞 Связаться с оператором</a>
+            </div>
+        </div>
+
+        <!-- Раздел Реферальной программы -->
+        <section class="ref-box" id="referral">
+            <h2>💰 Реферальная программа ShadowLabs</h2>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Приглашай друзей и получай % с каждой их покупки в нашем сервисе!</p>
+            <div class="ref-input-group">
+                <input type="text" id="refLink" value="https://shadowlabs.github.io/?ref=user123" readonly>
+                <button class="btn" onclick="copyRef()">Копировать</button>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        &copy; 2026 ShadowLabs. Все права защищены. Сервис 3D-печати и игровой посредник. <br>
+        Телефон для заказов: +7 (962) 026-42-77
+    </footer>
+
+    <script>
+        function copyRef() {
+            var copyText = document.getElementById("refLink");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            alert("Реферальная ссылка скопирована: " + copyText.value);
+        }
+    </script>
+</body>
+</html>
